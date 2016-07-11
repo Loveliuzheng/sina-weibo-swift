@@ -1,0 +1,36 @@
+1、设置icon和launch image
+
+   在asset中设置两者
+
+   launch image
+
+     先在asset里面创建一个launch image文件夹
+
+     在工程里将启动文件资源设置为自己在asset里面创建的launch image文件夹
+
+2、动态搭框架
+
+     1、动态获取命名空间
+     2、拼接类名 namespace + . + 类名
+     3、根据拼接好的类名，创建一个类 NSClassFromString
+     4、指定为ViewController类型
+     5、创建对象
+
+3、在tabBar插入一个btn
+
+     1、先在中间设置一个占位的item
+     2、然后创建btn放在相应的位置
+
+4、通过继承的方式，给多个控制器设置统一的界面，每个界面的细微差异，在子控制器里继续设置
+
+
+5、使用可选链优化拆包
+ self.nologinView?.setNoLoginViewisHome(true, imageName: "visitordiscover_feed_image_house", text: "关注一些人，回这里看看有什么惊喜")
+
+
+6、在swift中设置btn的左字右图
+
+     在layoutSubviews方法里，重新设置设置两者的x值
+
+
+

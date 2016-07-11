@@ -1,0 +1,75 @@
+1、设置icon和launch image
+
+   在asset中设置两者
+
+   launch image
+
+     先在asset里面创建一个launch image文件夹
+
+     在工程里将启动文件资源设置为自己在asset里面创建的launch image文件夹
+
+2、动态搭框架
+
+     1、动态获取命名空间
+     2、拼接类名 namespace + . + 类名
+     3、根据拼接好的类名，创建一个类 NSClassFromString
+     4、指定为ViewController类型
+     5、创建对象
+
+3、在tabBar插入一个btn
+
+     1、先在中间设置一个占位的item
+     2、然后创建btn放在相应的位置
+
+4、通过继承的方式，给多个控制器设置统一的界面，每个界面的细微差异，在子控制器里继续设置
+
+
+5、使用可选链优化拆包
+ self.nologinView?.setNoLoginViewisHome(true, imageName: "visitordiscover_feed_image_house", text: "关注一些人，回这里看看有什么惊喜")
+
+
+6、在swift中设置btn的左字右图
+
+     在layoutSubviews方法里，重新设置设置两者的x值
+
+
+7、自定义模态控制器的转场样式
+
+    1、正常的模态试图跳转
+
+    2、将要显示的控制器presentationstyle(展示样式)设置自定义，并挂代理transitioningDelegate
+
+    3、通过代理方法返回一个UIPresentationController，告知系统谁来自定义展示样式
+
+    4、布局将要展示的控制器
+
+    5、在UIPresentationController的containerViewWillLayoutSubviews里面设置presenView的frame,以及在容器试图上布局相应的遮罩
+
+8、自定义模态控制器的显示动画
+
+    1、用transitioningDelegate协议里的animationControllerForPresentedController和animationControllerForDismissedController告知系统谁来管理显示/消失动画，返回的对象要遵守UIViewControllerAnimatedTransitioning
+
+    2、实现UIViewControllerAnimatedTransitioning中的代理方法
+
+        //设置动画时间
+        func transitionDuration
+
+        //获取动画的上下文，transitionContext能得到动画的所有信息，试图显示和消失都会调用这个方法
+        // 实现这个方法，动画就需要再这里自定义，系统动画动画效果会消失
+        func animateTransition
+
+            显示原理
+            1、找到要显示的试图
+            2、将toView放在容器试图上面
+            3、设置锚点,设置动画的开始位置
+            4、首先将y轴缩放为0
+            5、在动画中恢复到原来的尺寸
+            6、动画结束告诉上下文
+
+
+
+
+
+
+
+
